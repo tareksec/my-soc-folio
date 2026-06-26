@@ -816,7 +816,10 @@ h1,h2,h3 { line-height: 1.2; }
 }
 
 /* Ensure all page content sits above the grid */
-header, main, footer { position: relative; z-index: 1; }
+main, footer { position: relative; z-index: 1; }
+/* Header holds the fixed navbar and must stack above main content,
+   otherwise the hero section overlaps and blocks the nav links. */
+header { position: relative; z-index: 1000; }
 
 /* ── THEME TOGGLE BUTTON ──────────────────────────────────── */
 .theme-toggle {
