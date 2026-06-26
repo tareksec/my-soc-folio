@@ -51,6 +51,8 @@
     localStorage.setItem(STORAGE_KEY, theme);
     const btn = document.querySelector('.theme-toggle');
     if (btn) btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    // Keep nav/footer logos in sync with the active theme.
+    if (typeof updateLogos === 'function') updateLogos();
   }
 
   function getPreferredTheme() {
@@ -99,8 +101,13 @@
 })();
 
 // ===== THEME & LOGO SWITCHING =====
+// Logo follows the active theme (the data-theme attribute set by the toggle),
+// falling back to the system preference if no theme has been applied yet.
 function updateLogos() {
-  const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const themeAttr = document.documentElement.getAttribute('data-theme');
+  const isDarkMode = themeAttr
+    ? themeAttr === 'dark'
+    : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
   const logoImg = document.querySelector('.logo-img');
   const footerLogo = document.querySelector('.footer-logo');
   const logoSrc = isDarkMode ? '/assets/darkmode/favicon.svg' : '/assets/whitemode/favicon.svg';
@@ -111,11 +118,6 @@ function updateLogos() {
 
 // Update logos on load
 document.addEventListener('DOMContentLoaded', updateLogos);
-
-// Update logos when system theme changes
-if (window.matchMedia) {
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateLogos);
-}
 
 // ===== NAVBAR SCROLL =====
 const navbar = document.getElementById('navbar');
