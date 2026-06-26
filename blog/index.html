@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Muhammad Tarek — Techvrs</title>
+  <meta name="description" content="Cybersecurity blog by Muhammad Tarek — SOC notes, TryHackMe writeups, and certification study guides." />
+  <meta name="author" content="Muhammad Tarek" />
+  <meta property="og:title" content="Blog | Muhammad Tarek — Techvrs" />
+  <meta property="og:description" content="SOC learning notes, TryHackMe writeups, and cybersecurity lab documentation." />
+  <meta property="og:image" content="/assets/whitemode/web-app-manifest-512x512.png" />
+  <meta property="og:url" content="https://techvrs.com/blog/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="/assets/whitemode/web-app-manifest-512x512.png" />
+  <link rel="icon" type="image/svg+xml" href="/assets/whitemode/favicon.svg" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/svg+xml" href="/assets/darkmode/favicon.svg" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/whitemode/favicon-96x96.png" />
+  <link rel="apple-touch-icon" href="/assets/whitemode/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#8B5E3C" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ===== SKELETON LOADING STATE ===== */
+    .blog-card.skeleton {
+      pointer-events: none;
+    }
+    .skeleton-line {
+      display: block;
+      border-radius: 6px;
+      background: linear-gradient(90deg, rgba(139, 94, 60, 0.10) 25%, rgba(139, 94, 60, 0.20) 37%, rgba(139, 94, 60, 0.10) 63%);
+      background-size: 400% 100%;
+      animation: skeleton-shimmer 1.4s ease infinite;
+    }
+    .skeleton-tag { width: 38%; height: 22px; margin-bottom: 1rem; border-radius: 999px; }
+    .skeleton-title { width: 90%; height: 20px; margin-bottom: 0.6rem; }
+    .skeleton-title.short { width: 60%; }
+    .skeleton-text { width: 100%; height: 13px; margin-bottom: 0.5rem; }
+    .skeleton-text.short { width: 70%; }
+    .skeleton-meta { width: 50%; height: 13px; margin: 1rem 0; }
+    .skeleton-link { width: 40%; height: 15px; }
+    @keyframes skeleton-shimmer {
+      0% { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+    .blog-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 2rem;
+      opacity: 0.75;
+    }
+  </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header role="banner">
+<nav class="navbar" id="navbar" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="/" class="nav-logo" aria-label="Techvrs Home"><img src="/assets/whitemode/favicon.svg" alt="Techvrs" class="logo-img" /></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/portfolio/">Portfolio</a></li>
+      <li><a href="/projects/">Projects</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li>
+      <li><a href="/security/">Security</a></li>
+      <li><a href="/#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode"><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+</header>
+<main id="main-content">
+
+<div class="page-hero">
+  <div class="container">
+    <span class="section-tag">Learning in Public</span>
+    <h1 class="serif">Security Notes & Writeups</h1>
+    <p>SOC learning notes, TryHackMe writeups, certification study guides, and cybersecurity lab documentation.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="blog-filter">
+      <button class="filter-btn active" data-filter="all">All Posts</button>
+      <button class="filter-btn" data-filter="soc">SOC / Blue Team</button>
+      <button class="filter-btn" data-filter="tryhackme">TryHackMe</button>
+      <button class="filter-btn" data-filter="certs">Certifications</button>
+      <button class="filter-btn" data-filter="labs">Labs</button>
+    </div>
+    <div class="blog-grid" id="blog-grid">
+      <!-- Loading skeletons (replaced by live Medium posts) -->
+      <article class="blog-card skeleton" aria-hidden="true">
+        <span class="skeleton-line skeleton-tag"></span>
+        <span class="skeleton-line skeleton-title"></span>
+        <span class="skeleton-line skeleton-title short"></span>
+        <span class="skeleton-line skeleton-text"></span>
+        <span class="skeleton-line skeleton-text"></span>
+        <span class="skeleton-line skeleton-text short"></span>
+        <span class="skeleton-line skeleton-meta"></span>
+        <span class="skeleton-line skeleton-link"></span>
+      </article>
+      <article class="blog-card skeleton" aria-hidden="true">
+        <span class="skeleton-line skeleton-tag"></span>
+        <span class="skeleton-line skeleton-title"></span>
+        <span class="skeleton-line skeleton-title short"></span>
+        <span class="skeleton-line skeleton-text"></span>
+        <span class="skeleton-line skeleton-text"></span>
+        <span class="skeleton-line skeleton-text short"></span>
+        <span class="skeleton-line skeleton-meta"></span>
+        <span class="skeleton-line skeleton-link"></span>
+      </article>
+      <article class="blog-card skeleton" aria-hidden="true">
+        <span class="skeleton-line skeleton-tag"></span>
+        <span class="skeleton-line skeleton-title"></span>
+        <span class="skeleton-line skeleton-title short"></span>
+        <span class="skeleton-line skeleton-text"></span>
+        <span class="skeleton-line skeleton-text"></span>
+        <span class="skeleton-line skeleton-text short"></span>
+        <span class="skeleton-line skeleton-meta"></span>
+        <span class="skeleton-line skeleton-link"></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Muhammad Tarek — <a href="https://techvrs.com">techvrs.com</a></p>
+      <p class="footer-made">Built with focus &amp; coffee ☕</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // ===== CONFIG =====
+  var MEDIUM_USERNAME = 'mdtareksec';
+  var FEED_URL = 'https://medium.com/feed/@' + MEDIUM_USERNAME;
+  // Medium's RSS feed is not CORS-accessible from the browser, so we use a public
+  // JSON proxy to read it client-side.
+  var API_URL = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(FEED_URL);
+  var PROFILE_URL = 'https://medium.com/@' + MEDIUM_USERNAME;
+
+  var grid = document.getElementById('blog-grid');
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var currentFilter = 'all';
+
+  // ===== HELPERS =====
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str == null ? '' : String(str);
+    return div.innerHTML;
+  }
+
+  function stripHtml(html) {
+    var div = document.createElement('div');
+    div.innerHTML = html || '';
+    return (div.textContent || div.innerText || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function truncate(text, max) {
+    if (text.length <= max) return text;
+    return text.slice(0, max).replace(/\s+\S*$/, '') + '…';
+  }
+
+  function formatDate(dateStr) {
+    var d = new Date(dateStr);
+    if (isNaN(d)) return '';
+    return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+  }
+
+  function readingTime(html) {
+    var words = stripHtml(html).split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.round(words / 200)) + ' min read';
+  }
+
+  // Map a post to one of the existing filter categories based on its Medium tags/title.
+  var CATEGORIES = {
+    soc:       { label: 'SOC / Blue Team', match: ['soc', 'blue team', 'sentinel', 'siem', 'detection', 'phishing', 'incident', 'threat'] },
+    tryhackme: { label: 'TryHackMe',       match: ['tryhackme', 'thm', 'writeup', 'walkthrough', 'room', 'ctf'] },
+    certs:     { label: 'Certifications',  match: ['cert', 'certification', 'exam', 'sc-900', 'sc900', 'comptia', 'security+', 'az-', 'study guide'] },
+    labs:      { label: 'Labs',            match: ['lab', 'flarevm', 'remnux', 'home lab', 'homelab', 'setup', 'environment', 'analysis lab'] }
+  };
+
+  function categorize(post) {
+    var haystack = (
+      (post.title || '') + ' ' +
+      ((post.categories || []).join(' ')) + ' ' +
+      stripHtml(post.description || '')
+    ).toLowerCase();
+    var keys = ['soc', 'tryhackme', 'certs', 'labs'];
+    for (var i = 0; i < keys.length; i++) {
+      var cat = CATEGORIES[keys[i]];
+      for (var j = 0; j < cat.match.length; j++) {
+        if (haystack.indexOf(cat.match[j]) !== -1) {
+          return { key: keys[i], label: cat.label };
+        }
+      }
+    }
+    return { key: 'soc', label: CATEGORIES.soc.label };
+  }
+
+  // ===== RENDER =====
+  function renderPosts(posts) {
+    grid.innerHTML = '';
+    if (!posts.length) {
+      renderEmpty('No posts found yet. Check back soon!');
+      return;
+    }
+    posts.forEach(function (post) {
+      var cat = categorize(post);
+      var title = escapeHtml(post.title || 'Untitled');
+      var excerpt = escapeHtml(truncate(stripHtml(post.description || post.content || ''), 160));
+      var date = escapeHtml(formatDate(post.pubDate));
+      var time = escapeHtml(readingTime(post.content || post.description || ''));
+      var link = encodeURI(post.link || PROFILE_URL);
+
+      var article = document.createElement('article');
+      article.className = 'blog-card';
+      article.setAttribute('data-cat', cat.key);
+      article.innerHTML =
+        '<div class="blog-cat ' + cat.key + '">' + escapeHtml(cat.label) + '</div>' +
+        '<h3>' + title + '</h3>' +
+        '<p>' + excerpt + '</p>' +
+        '<div class="blog-meta">' +
+          '<span><i class="fas fa-calendar"></i> ' + date + '</span>' +
+          '<span><i class="fas fa-clock"></i> ' + time + '</span>' +
+        '</div>' +
+        '<a href="' + link + '" target="_blank" rel="noopener" class="blog-link">Read on Medium <i class="fas fa-arrow-right"></i></a>';
+      grid.appendChild(article);
+    });
+    applyFilter(currentFilter);
+  }
+
+  function renderEmpty(message) {
+    grid.innerHTML = '<p class="blog-empty">' + escapeHtml(message) +
+      ' <a href="' + PROFILE_URL + '" target="_blank" rel="noopener">View my Medium profile <i class="fas fa-arrow-right"></i></a></p>';
+  }
+
+  // ===== FILTERING (operates on dynamically rendered cards) =====
+  function applyFilter(filter) {
+    currentFilter = filter;
+    var cards = grid.querySelectorAll('.blog-card');
+    cards.forEach(function (card) {
+      card.style.display = (filter === 'all' || card.dataset.cat === filter) ? 'flex' : 'none';
+    });
+  }
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filterBtns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      applyFilter(btn.dataset.filter);
+    });
+  });
+
+  // ===== FETCH =====
+  function loadPosts() {
+    fetch(API_URL)
+      .then(function (res) {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
+      .then(function (data) {
+        if (data.status !== 'ok' || !Array.isArray(data.items)) {
+          throw new Error('Invalid feed response');
+        }
+        renderPosts(data.items);
+      })
+      .catch(function () {
+        renderEmpty('Unable to load posts right now.');
+      });
+  }
+
+  loadPosts();
+})();
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security Hardening | Muhammad Tarek — Techvrs</title>
+  <meta name="description" content="Website security hardening guide by Muhammad Tarek — HTTPS, headers, input validation, Cloudflare, and more." />
+  <meta name="author" content="Muhammad Tarek" />
+  <meta property="og:title" content="Security Hardening | Muhammad Tarek — Techvrs" />
+  <meta property="og:description" content="Website security hardening guide — HTTPS, headers, Cloudflare WAF, and 12 security layers." />
+  <meta property="og:image" content="/assets/whitemode/web-app-manifest-512x512.png" />
+  <meta property="og:url" content="https://techvrs.com/security/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="/assets/whitemode/web-app-manifest-512x512.png" />
+  <link rel="icon" type="image/svg+xml" href="/assets/whitemode/favicon.svg" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/svg+xml" href="/assets/darkmode/favicon.svg" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/whitemode/favicon-96x96.png" />
+  <link rel="apple-touch-icon" href="/assets/whitemode/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#8B5E3C" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header role="banner">
+<nav class="navbar" id="navbar" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="/" class="nav-logo" aria-label="Techvrs Home"><img src="/assets/whitemode/favicon.svg" alt="Techvrs" class="logo-img" /></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/portfolio/">Portfolio</a></li>
+      <li><a href="/projects/">Projects</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/security/" class="active">Security</a></li>
+      <li><a href="/#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode"><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+</header>
+<main id="main-content">
+
+<div class="page-hero sec-hero">
+  <div class="container">
+    <span class="section-tag">Knowledge Base</span>
+    <h1 class="serif">Website Security Hardening</h1>
+    <p>A practical, production-grade guide to securing any website — from HTTPS enforcement to Cloudflare WAF and beyond.</p>
+    <div class="sec-hero-badges">
+      <span><i class="fas fa-shield-halved"></i> 12 Security Layers</span>
+      <span><i class="fas fa-check-circle"></i> Production Ready</span>
+      <span><i class="fas fa-bolt"></i> Blocks 90–95% of Attacks</span>
+    </div>
+  </div>
+</div>
+
+<section class="section sec-stats-section">
+  <div class="container">
+    <div class="sec-stats">
+      <div class="sec-stat"><div class="sec-stat-icon critical"><i class="fas fa-triangle-exclamation"></i></div><span class="sec-stat-n">95%</span><span class="sec-stat-l">Attacks Blocked</span></div>
+      <div class="sec-stat"><div class="sec-stat-icon high"><i class="fas fa-lock"></i></div><span class="sec-stat-n">12</span><span class="sec-stat-l">Security Layers</span></div>
+      <div class="sec-stat"><div class="sec-stat-icon medium"><i class="fas fa-shield-halved"></i></div><span class="sec-stat-n">OWASP</span><span class="sec-stat-l">Top 10 Covered</span></div>
+      <div class="sec-stat"><div class="sec-stat-icon low"><i class="fas fa-cloud"></i></div><span class="sec-stat-n">WAF</span><span class="sec-stat-l">DDoS Protected</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="sec-layout">
+      <aside class="sec-toc" aria-label="Table of contents">
+        <div class="toc-card">
+          <h3><i class="fas fa-list"></i> Contents</h3>
+          <ol class="toc-list">
+            <li><a href="#https">Enforce HTTPS</a></li>
+            <li><a href="#hosting">Secure Hosting</a></li>
+            <li><a href="#input">Input Validation</a></li>
+            <li><a href="#admin">Protect Admin Routes</a></li>
+            <li><a href="#env">Environment Variables</a></li>
+            <li><a href="#headers">Security Headers</a></li>
+            <li><a href="#ratelimit">Rate Limiting</a></li>
+            <li><a href="#cloudflare">Cloudflare Protection</a></li>
+            <li><a href="#github">Secure GitHub Workflow</a></li>
+            <li><a href="#deps">Keep Dependencies Updated</a></li>
+            <li><a href="#logging">Logging & Monitoring</a></li>
+            <li><a href="#backup">Backup Strategy</a></li>
+          </ol>
+          <div class="toc-note"><i class="fas fa-info-circle"></i><p>No site is 100% hack-proof, but these layers block the vast majority of real-world attacks.</p></div>
+        </div>
+      </aside>
+      <div class="sec-content">
+        <article class="sec-card" id="https"><div class="sec-card-header"><div class="sec-num">01</div><div class="sec-icon critical"><i class="fas fa-lock"></i></div><div><h2 class="serif">Enforce HTTPS</h2><span class="sec-priority critical-badge">Critical</span></div></div><div class="sec-card-body"><p>HTTPS encrypts all data between the browser and server. Without it, credentials, form data, and sessions are exposed in plaintext on the network.</p><ul class="sec-list"><li><i class="fas fa-check"></i> Install an SSL/TLS certificate (Let's Encrypt is free)</li><li><i class="fas fa-check"></i> Force redirect all HTTP traffic to HTTPS (301 redirect)</li><li><i class="fas fa-check"></i> Enable HSTS to prevent protocol downgrade attacks</li><li><i class="fas fa-check"></i> Never run production without HTTPS — ever</li></ul><div class="sec-code"><div class="sec-code-bar"><span>nginx.conf — HTTPS redirect</span></div><pre><code>server {
+  listen 80;
+  return 301 https://$host$request_uri;
+}
+server {
+  listen 443 ssl;
+  add_header Strict-Transport-Security "max-age=31536000" always;
+}</code></pre></div><div class="sec-tip"><i class="fas fa-lightbulb"></i> <strong>Quick win:</strong> Use Cloudflare — free SSL and automatic HTTPS in minutes.</div></div></article>
+        <article class="sec-card" id="hosting"><div class="sec-card-header"><div class="sec-num">02</div><div class="sec-icon high"><i class="fas fa-server"></i></div><div><h2 class="serif">Secure Hosting Environment</h2><span class="sec-priority high-badge">High</span></div></div><div class="sec-card-body"><p>Your hosting environment is the foundation. A misconfigured server exposes you to privilege escalation, unauthorized access, and data breaches.</p><ul class="sec-list"><li><i class="fas fa-check"></i> Prefer managed platforms: Vercel, Netlify, or GitHub Pages for static sites</li><li><i class="fas fa-check"></i> Keep all server software, OS packages, and runtimes updated</li><li><i class="fas fa-check"></i> Disable unused ports — only expose 80 and 443</li><li><i class="fas fa-check"></i> Enable UFW or provider firewall with strict allow rules</li><li><i class="fas fa-check"></i> Disable root SSH login; use key-based authentication only</li></ul><div class="sec-tip"><i class="fas fa-lightbulb"></i> <strong>For static sites:</strong> GitHub Pages + Cloudflare is the most secure, zero-maintenance setup.</div></div></article>
+        <article class="sec-card" id="input"><div class="sec-card-header"><div class="sec-num">03</div><div class="sec-icon critical"><i class="fas fa-filter"></i></div><div><h2 class="serif">Input Validation & Sanitization</h2><span class="sec-priority critical-badge">Critical</span></div></div><div class="sec-card-body"><p>Every input field is a potential attack surface. Unvalidated inputs are the root cause of XSS, SQL injection, and command injection attacks.</p><ul class="sec-list"><li><i class="fas fa-check"></i> Validate all inputs server-side — never trust the frontend alone</li><li><i class="fas fa-check"></i> Sanitize inputs to strip HTML tags and special characters</li><li><i class="fas fa-check"></i> Use parameterized queries for all database operations</li><li><i class="fas fa-check"></i> Implement Content Security Policy (CSP) to block inline scripts</li></ul><div class="sec-threats"><span class="threat xss">Prevents XSS</span><span class="threat sqli">Prevents SQLi</span><span class="threat cmd">Prevents Command Injection</span></div></div></article>
+        <article class="sec-card" id="admin"><div class="sec-card-header"><div class="sec-num">04</div><div class="sec-icon high"><i class="fas fa-user-shield"></i></div><div><h2 class="serif">Protect Admin & Sensitive Routes</h2><span class="sec-priority high-badge">High</span></div></div><div class="sec-card-body"><p>Default admin routes are the first thing attackers scan for. Exposed dashboards with weak credentials are compromised within hours of going live.</p><ul class="sec-list"><li><i class="fas fa-check"></i> Use strong, unique passwords (20+ characters, password manager)</li><li><i class="fas fa-check"></i> Enable Two-Factor Authentication (2FA) on all admin accounts</li><li><i class="fas fa-check"></i> Rename default routes — never use <code>/admin</code> or <code>/wp-admin</code></li><li><i class="fas fa-check"></i> Restrict admin access by IP allowlist where possible</li><li><i class="fas fa-check"></i> Implement account lockout after failed login attempts</li></ul></div></article>
+        <article class="sec-card" id="env"><div class="sec-card-header"><div class="sec-num">05</div><div class="sec-icon critical"><i class="fas fa-key"></i></div><div><h2 class="serif">Secure Environment Variables</h2><span class="sec-priority critical-badge">Critical</span></div></div><div class="sec-card-body"><p>Leaked API keys and secrets are one of the most common causes of data breaches. Thousands of credentials are exposed on GitHub every day.</p><ul class="sec-list"><li><i class="fas fa-check"></i> Never hardcode API keys, passwords, or tokens in source code</li><li><i class="fas fa-check"></i> Store all secrets in <code>.env</code> files — never commit them</li><li><i class="fas fa-check"></i> Add <code>.env</code> to <code>.gitignore</code> before your first commit</li><li><i class="fas fa-check"></i> Use platform secret managers (GitHub Secrets, Vercel Env Vars)</li><li><i class="fas fa-check"></i> Rotate any key that was accidentally exposed immediately</li></ul><div class="sec-code"><div class="sec-code-bar"><span>.gitignore — essential entries</span></div><pre><code>.env
+.env.local
+.env.production
+*.key
+secrets/</code></pre></div></div></article>
+        <article class="sec-card" id="headers"><div class="sec-card-header"><div class="sec-num">06</div><div class="sec-icon high"><i class="fas fa-heading"></i></div><div><h2 class="serif">Security Headers</h2><span class="sec-priority high-badge">High</span></div></div><div class="sec-card-body"><p>HTTP security headers instruct browsers to enforce security policies that block entire classes of attacks.</p><div class="headers-table"><div class="ht-row ht-header"><span>Header</span><span>Value</span><span>Protects Against</span></div><div class="ht-row"><span><code>Content-Security-Policy</code></span><span><code>default-src 'self'</code></span><span>XSS, data injection</span></div><div class="ht-row"><span><code>X-Frame-Options</code></span><span><code>DENY</code></span><span>Clickjacking</span></div><div class="ht-row"><span><code>X-Content-Type-Options</code></span><span><code>nosniff</code></span><span>MIME sniffing</span></div><div class="ht-row"><span><code>Referrer-Policy</code></span><span><code>strict-origin-when-cross-origin</code></span><span>Data leakage</span></div><div class="ht-row"><span><code>Strict-Transport-Security</code></span><span><code>max-age=31536000</code></span><span>Protocol downgrade</span></div></div><div class="sec-tip"><i class="fas fa-lightbulb"></i> Test your headers at <strong>securityheaders.com</strong> — aim for an A+ rating.</div></div></article>
+        <article class="sec-card" id="ratelimit"><div class="sec-card-header"><div class="sec-num">07</div><div class="sec-icon medium"><i class="fas fa-gauge-high"></i></div><div><h2 class="serif">Rate Limiting</h2><span class="sec-priority medium-badge">Medium</span></div></div><div class="sec-card-body"><p>Without rate limiting, attackers can brute-force login forms, spam contact forms, and overwhelm APIs with thousands of requests per second.</p><ul class="sec-list"><li><i class="fas fa-check"></i> Limit requests per IP — e.g., 10 requests/minute on forms</li><li><i class="fas fa-check"></i> Add exponential backoff for repeated failed attempts</li><li><i class="fas fa-check"></i> Use CAPTCHA (hCaptcha / Cloudflare Turnstile) on public forms</li><li><i class="fas fa-check"></i> Cloudflare WAF handles rate limiting automatically at the edge</li></ul></div></article>
+        <article class="sec-card" id="cloudflare"><div class="sec-card-header"><div class="sec-num">08</div><div class="sec-icon high"><i class="fas fa-cloud-arrow-up"></i></div><div><h2 class="serif">Cloudflare Protection</h2><span class="sec-priority high-badge">Highly Recommended</span></div></div><div class="sec-card-body"><p>Cloudflare sits between your visitors and your server, filtering malicious traffic before it ever reaches you. Free and takes 10 minutes to set up.</p><div class="cf-features"><div class="cf-feat"><i class="fas fa-shield-halved"></i><div><strong>DDoS Protection</strong><p>Absorbs volumetric attacks automatically — up to Tbps scale.</p></div></div><div class="cf-feat"><i class="fas fa-fire-flame-curved"></i><div><strong>Web Application Firewall</strong><p>Blocks OWASP Top 10 attacks, SQLi, XSS, and known exploit patterns.</p></div></div><div class="cf-feat"><i class="fas fa-robot"></i><div><strong>Bot Filtering</strong><p>Identifies and blocks malicious bots, scrapers, and credential stuffers.</p></div></div><div class="cf-feat"><i class="fas fa-chart-line"></i><div><strong>Traffic Analytics</strong><p>Real-time visibility into who is hitting your site and from where.</p></div></div></div><div class="sec-tip"><i class="fas fa-lightbulb"></i> <strong>Setup:</strong> Point your domain nameservers to Cloudflare. Free plan covers everything for a portfolio site.</div></div></article>
+        <article class="sec-card" id="github"><div class="sec-card-header"><div class="sec-num">09</div><div class="sec-icon medium"><i class="fab fa-github"></i></div><div><h2 class="serif">Secure GitHub Workflow</h2><span class="sec-priority medium-badge">Medium</span></div></div><div class="sec-card-body"><p>Your repository is part of your attack surface. Leaked secrets in commit history are permanent and found by automated scanners within minutes.</p><ul class="sec-list"><li><i class="fas fa-check"></i> Never commit API keys, passwords, or tokens — use GitHub Secrets</li><li><i class="fas fa-check"></i> Set up <code>.gitignore</code> before your first commit</li><li><i class="fas fa-check"></i> Enable GitHub secret scanning on your repository</li><li><i class="fas fa-check"></i> Review all dependencies before installing — check for typosquatting</li></ul></div></article>
+        <article class="sec-card" id="deps"><div class="sec-card-header"><div class="sec-num">10</div><div class="sec-icon medium"><i class="fas fa-cubes"></i></div><div><h2 class="serif">Keep Dependencies Updated</h2><span class="sec-priority medium-badge">Medium</span></div></div><div class="sec-card-body"><p>Outdated dependencies are a leading cause of supply chain attacks. A single vulnerable package can compromise your entire application.</p><ul class="sec-list"><li><i class="fas fa-check"></i> Run <code>npm audit</code> regularly to find known vulnerabilities</li><li><i class="fas fa-check"></i> Enable Dependabot on GitHub for automated security PRs</li><li><i class="fas fa-check"></i> Remove unused packages — every dependency is a risk</li></ul><div class="sec-code"><div class="sec-code-bar"><span>Terminal — audit commands</span></div><pre><code>npm audit
+npm audit fix
+npm outdated</code></pre></div></div></article>
+        <article class="sec-card" id="logging"><div class="sec-card-header"><div class="sec-num">11</div><div class="sec-icon medium"><i class="fas fa-chart-bar"></i></div><div><h2 class="serif">Logging & Monitoring</h2><span class="sec-priority medium-badge">Medium</span></div></div><div class="sec-card-body"><p>You can't defend what you can't see. Logging and monitoring give you visibility into attacks in progress and forensic data after an incident.</p><ul class="sec-list"><li><i class="fas fa-check"></i> Enable access logs on your web server or hosting platform</li><li><i class="fas fa-check"></i> Monitor for suspicious patterns: 404 spikes, repeated POST requests</li><li><i class="fas fa-check"></i> Track failed login attempts and alert on thresholds</li><li><i class="fas fa-check"></i> Use Cloudflare Analytics for edge-level traffic visibility</li><li><i class="fas fa-check"></i> Set up uptime monitoring (UptimeRobot is free)</li></ul></div></article>
+        <article class="sec-card" id="backup"><div class="sec-card-header"><div class="sec-num">12</div><div class="sec-icon low"><i class="fas fa-database"></i></div><div><h2 class="serif">Backup Strategy</h2><span class="sec-priority low-badge">Important</span></div></div><div class="sec-card-body"><p>Backups are your last line of defense. Ransomware, accidental deletion, and server failures happen — without backups, recovery is impossible.</p><ul class="sec-list"><li><i class="fas fa-check"></i> Schedule regular automated backups (daily for active sites)</li><li><i class="fas fa-check"></i> Store backups separately from the main server (3-2-1 rule)</li><li><i class="fas fa-check"></i> Test your restore process — a backup you can't restore is useless</li><li><i class="fas fa-check"></i> For static sites: your Git repository IS your backup — keep it clean</li></ul><div class="sec-tip"><i class="fas fa-lightbulb"></i> <strong>3-2-1 Rule:</strong> 3 copies, on 2 different media types, with 1 offsite copy.</div></div></article>
+        <div class="sec-callout"><div class="sec-callout-icon"><i class="fas fa-shield-halved"></i></div><div><h3 class="serif">No website is 100% hack-proof.</h3><p>But implementing all 12 layers above blocks <strong>90–95% of real-world attacks</strong>. Bots and script kiddies will fail. Your site becomes production-grade secure.</p><a href="/#contact" class="btn btn-primary" style="margin-top:20px">Discuss Security <i class="fas fa-arrow-right"></i></a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Muhammad Tarek — <a href="https://techvrs.com">techvrs.com</a></p>
+      <p class="footer-made">Built with focus &amp; coffee ☕</p>
+    </div>
+  </div>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>
