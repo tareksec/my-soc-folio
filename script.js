@@ -237,6 +237,13 @@ if (filterBtns.length) {
 
 // ===== ANIMATION 4: SMOOTH PAGE TRANSITION =====
 (function () {
+  // Respect users who opt out of motion: the overlay is display:none for them,
+  // so it would never fire `animationend`. In that case (or if the API is
+  // unavailable) we skip the transition entirely and let links navigate natively.
+  const prefersReducedMotion =
+    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
   const overlay = document.createElement('div');
   overlay.className = 'page-overlay';
   document.body.appendChild(overlay);
@@ -245,18 +252,29 @@ if (filterBtns.length) {
   overlay.addEventListener('animationend', () => overlay.classList.remove('slide-out'), { once: true });
 
   document.addEventListener('click', e => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     const link = e.target.closest('a');
     if (!link) return;
     const href = link.getAttribute('href');
     if (!href || href.startsWith('#') || href.startsWith('mailto:') ||
-        href.startsWith('tel:') || /^https?:\/\//.test(href) || link.target === '_blank') return;
+        href.startsWith('tel:') || /^https?:\/\//.test(href) || link.target === '_blank' ||
+        link.hasAttribute('download')) return;
 
     e.preventDefault();
+
+    let navigated = false;
+    const go = () => {
+      if (navigated) return;
+      navigated = true;
+      window.location.href = href;
+    };
+
     overlay.classList.remove('slide-out');
     overlay.classList.add('slide-in');
-    overlay.addEventListener('animationend', () => {
-      window.location.href = href;
-    }, { once: true });
+    overlay.addEventListener('animationend', go, { once: true });
+    // Fallback: navigate even if the animation never fires (interrupted,
+    // hidden tab, missing keyframes, etc.) so links can never get stuck.
+    setTimeout(go, 700);
   });
 })();
 
