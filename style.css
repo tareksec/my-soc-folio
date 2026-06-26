@@ -627,7 +627,7 @@ h1,h2,h3 { line-height: 1.2; }
   .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 20px 28px; gap: 18px; }
   .nav-links.open { display: flex; }
   .hamburger { display: flex; }
-  .theme-toggle { right: 68px; /* clear of hamburger at right: 20px */ }
+  .theme-toggle { margin-left: auto; }
   .projects-grid { grid-template-columns: 1fr; }
   .certs-grid { grid-template-columns: 1fr; }
   .blog-grid { grid-template-columns: 1fr; }
@@ -823,9 +823,8 @@ header { position: relative; z-index: 1000; }
 
 /* ── THEME TOGGLE BUTTON ──────────────────────────────────── */
 .theme-toggle {
-  position: fixed;
-  top: 13px;
-  right: 80px;
+  flex-shrink: 0;
+  margin-left: 24px;
   z-index: 1100;
   width: 42px; height: 42px;
   border-radius: var(--radius-full);
