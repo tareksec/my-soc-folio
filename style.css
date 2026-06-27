@@ -13,19 +13,19 @@
 
 :root {
   /* ── Colour palette ───────────────────────────────── */
-  --bg: #FAFAF7;
+  --bg: #F8F9FA;
   --white: #ffffff;
-  --cream: #F3EDE3;
-  --coffee: #8B5E3C;
-  --coffee-light: #C8A27A;
-  --coffee-dark: #6B4226;
-  --espresso: #2C1A0E;
-  --text: #1C1C1C;
-  --muted: #6B6B6B;
-  --border: #E8E2D9;
-  --shadow: rgba(44,26,14,0.07);
-  --shadow-md: rgba(44,26,14,0.13);
-  --shadow-lg: rgba(44,26,14,0.20);
+  --cream: #F4F5F7;
+  --coffee: #2563EB;
+  --coffee-light: #3B82F6;
+  --coffee-dark: #1E40AF;
+  --espresso: #0A1128;
+  --text: #0A1128;
+  --muted: #4A5568;
+  --border: #E3E6EB;
+  --shadow: rgba(10,17,40,0.06);
+  --shadow-md: rgba(10,17,40,0.12);
+  --shadow-lg: rgba(10,17,40,0.20);
 
   /* ── Radius tokens ────────────────────────────────── */
   --radius-xs: 2px;
